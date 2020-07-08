@@ -22,24 +22,24 @@ app.get('/apps', (req, res) => {
       .send('Sort must include Rating or App');
   }
 
-  // if (sort) {
-  //   dataClone.sort((a, b) => {
-  //     //1, 0, -1
+  if (sort) {
+    dataClone.sort((a, b) => {
+      //1, 0, -1
 
-  //     const newA = a[sort];
-  //     const newB = b[sort];
+      const newA = a[sort];
+      const newB = b[sort];
 
-  //     if (newA > newB) {
-  //       return 1;
-  //     } else if (newA < newB) {
-  //       return -1;
-  //     } else {
-  //       return 0;
-  //     }
-  //   });
-  // }
+      if (newA > newB) {
+        return 1;
+      } else if (newA < newB) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+  }
 
-  const allGenres = ['Action', 'Puzzle', 'Strategy', 'Casual', 'Arcade', 'Card']
+  const allGenres = ['Action', 'Puzzle', 'Strategy', 'Casual', 'Arcade', 'Card'];
 
   if (genres && !allGenres.includes(genres)) {
     return res
